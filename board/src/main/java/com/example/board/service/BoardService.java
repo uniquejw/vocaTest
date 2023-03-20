@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BoardService {
     @Autowired
     BoardRepository boardRepository;
-
+    BoardDto boardDto;
     public List<BoardDto> list(){
         List boardDtoList = new ArrayList<>();
         for (int i = 0; i < boardRepository.findAll().size(); i++) {
@@ -25,6 +26,14 @@ public class BoardService {
             boardDtoList.add(boardDto);
         }
         return boardDtoList;
+    }
+
+    public BoardDto detail(int id){
+        boardDto.setBoardNo(boardRepository.findById(id).get().getBoardNum());
+        boardDto.setTitle(boardRepository.findById(id).get().getBoardTitle());
+        boardDto.setContent(boardRepository.findById(id).get().getBoardContent());
+        boardDto.setWriter(boardRepository.findById(id).get().getWriter());
+        return boardDto;
     }
 
     public void write(BoardDto boardDto) {

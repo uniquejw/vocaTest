@@ -51,7 +51,23 @@
                 </nav>
                 <!-- Page content-->
                 <div class="container-fluid">
-                    <h1>WELCOME! MY BOARD!</h1>
+                    <h1>Board</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Writer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each ="listEl, idx : ${list}" th:id="${listEl.boardNo}" onclick="jw(this.id)">
+                                <td th:text="${idx.count}"></td>
+                                <td th:text="${listEl.title}"></td>
+                                <td th:text="${listEl.writer}"></td>
+                            </tr>
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>
@@ -62,4 +78,7 @@
     </body>
 </html>
 <script>
+    function jw(id){
+        location.href=`/detail/${id}`
+    }
 </script>
