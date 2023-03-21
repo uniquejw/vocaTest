@@ -9,7 +9,14 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+        <style type="text/css">
+            @font-face{
+                font-family: "nanum";
+                src: url("./static/font/NanumGothic-Regular.ttf");
+            }
+            p{font-family: "nanum", serif;}
+        </style>
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -51,29 +58,56 @@
                 </nav>
                 <!-- Page content-->
                 <div class="container-fluid">
-                    <div style="padding:10px;">
-                        <h1>Board</h1>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Writer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each ="listEl, idx : ${list}" th:id="${listEl.boardNo}" onclick="toDetail(this.id)">
-                                    <td th:text="${idx.count}"></td>
-                                    <td th:text="${listEl.title}"></td>
-                                    <td th:text="${listEl.writer}"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="row" style=" padding:10px; height:10vh">
-                        <div style="align-items: start">
-                            <button type="button" class="btn btn-primary" style="float:right; margin-right:10px;" onclick="toWrite()">글쓰기</button>
+                    <div class="container">
+                        <div class="row" style="height: 10vh"></div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="row">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                                <input type="email" class="form-control" placeholder="name@example.com">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="row">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style=" padding:10px; height:10vh">
+                                    <div style="align-items: start">
+                                        <button type="button" class="btn btn-secondary" style="float:right; margin-right:10px;" onclick="toList()">목록 보기</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
                         </div>
                     </div>
                 </div>
@@ -82,15 +116,11 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
     </body>
 </html>
 <script>
-    function toDetail(id){
-        location.href=`/detail/${id}`
-    }
-
-    function toWrite(){
-        location.href=`/toCreate`
-    }
+    function toList(){
+        location.href="/list"
+    };
 </script>

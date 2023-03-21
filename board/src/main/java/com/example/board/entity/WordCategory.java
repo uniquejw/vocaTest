@@ -8,13 +8,11 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Board {
+public class WordCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int boardNum;
-    private String boardTitle;
-    private String boardContent;
-    private String writer;
-
-
+    private Integer cateId;
+    private String cateType;
+    private int cateDay;
+    private String cateTitle;
 }

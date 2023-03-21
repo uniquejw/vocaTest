@@ -1,16 +1,16 @@
 package com.example.board.dto;
 
-public class BoardDto {
-    int boardNo;
+public class WordBoardDto {
+    Integer boardNo;
     String title;
     String content;
     String writer;
 
-    public int getBoardNo() {
+    public Integer getBoardNo() {
         return boardNo;
     }
 
-    public void setBoardNo(int boardNo) {
+    public void setBoardNo(Integer boardNo) {
         this.boardNo = boardNo;
     }
 
